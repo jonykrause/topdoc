@@ -84,13 +84,21 @@
       });
       topdoc.files[0].should.equal('test/cases/simple/button.css');
     });
+    it('should find all the scss files in a directory', function() {
+      var topdoc;
+      topdoc = new Topdoc({
+        source: this.srcDir,
+        destination: this.outputDir
+      });
+      topdoc.files[1].should.equal('test/cases/simple/button.scss');
+    });
     it('should ignore .min.css files in directory', function() {
       var topdoc;
       topdoc = new Topdoc({
         source: this.srcDir,
         destination: this.outputDir
       });
-      topdoc.files.length.should.equal(2);
+      topdoc.files.length.should.equal(3);
     });
     it('should generate an index.html', function(done) {
       var generatedDoc, topdoc;
